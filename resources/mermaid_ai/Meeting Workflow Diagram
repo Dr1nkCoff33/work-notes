@@ -1,0 +1,16 @@
+flowchart TD
+    A[🎙️ Record Meeting] --> B[⬇️ Export .vtt File]
+    B --> C[🤖 Run Gemini Prompt]
+    C --> D[📝 Generate Summary, Actions, Decisions]
+
+    D --> E[📂 Save .md File in PARA Repo<br>areas/meetings/YYYY-MM/]
+    E --> F[💾 Git: Add, Commit, Push]
+    F --> G[🔗 Note Versioned on GitHub]
+
+    D --> H[✉️ Run Gemini Follow-Up Email Prompt]
+    H --> I[📤 Send to Stakeholders via Email/Slack]
+
+    style A fill:#f0f8ff,stroke:#000,stroke-width:1px
+    style C fill:#fef3c7,stroke:#000,stroke-width:1px
+    style E fill:#d1fae5,stroke:#000,stroke-width:1px
+    style G fill:#e0e7ff,stroke:#000,stroke-width:1px

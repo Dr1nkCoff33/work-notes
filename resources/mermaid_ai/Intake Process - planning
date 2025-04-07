@@ -1,0 +1,48 @@
+flowchart LR
+    A["🚨 Incoming Request"] --> B@{ label: "📬 Submit Intake Form and Add Labels such as 'CI', 'SRM', 'Security'" }
+    B --> C{"📋 Is it in the Q2 Committed Plan?"}
+    C -- Yes --> D["🏁 Assign to Team Member and Add to Active Sprint"]
+    C -- No --> E["🧠 Review During Triage Intake"]
+    E --> F{"🔥 Critical Emergency?"}
+    F -- No --> G@{ label: "📥 Add to Unplanned Request Backlog and Label as 'Unplanned'" }
+    G --> H["📅 Review in Weekly Priority Sync with PM and EM"]
+    H --> I{"✅ Approved for Pull-In?"}
+    I -- Yes --> J@{ label: "📌 Move to 'Ready to Pull' Queue and Prep Stories in Jira" }
+    I -- No --> K["📦 Defer to Q3 or Re-scope Later and Document Decision in Intake Log"]
+    F -- Yes --> L["⚖️ Triage by PM + EM + Director"]
+    L --> M{"♻️ Tradeoff Accepted?"}
+    M -- Yes --> N["🔄 Swap with Lower-Priority Epic and Adjust Roadmap in Jira/Confluence"]
+    M -- No --> O@{ label: "📋 Log for Future Review and Label as 'Deferred'" }
+
+    B@{ shape: rect}
+    G@{ shape: rect}
+    J@{ shape: rect}
+    O@{ shape: rect}
+     A:::start
+     B:::process
+     C:::decision
+     D:::approved
+     E:::review
+     F:::decision
+     G:::process
+     H:::meeting
+     I:::decision
+     J:::queue
+     K:::defer
+     L:::triage
+     M:::decision
+     N:::swap
+     O:::log
+    classDef start fill:#f7bfd4,stroke:#e91e63,stroke-width:2px,color:#000
+    classDef process fill:#b3e5fc,stroke:#0288d1,stroke-width:2px,color:#000
+    classDef decision fill:#ffecb3,stroke:#ff9800,stroke-width:2px,color:#000
+    classDef approved fill:#c8e6c9,stroke:#4caf50,stroke-width:2px,color:#000
+    classDef review fill:#ffcdd2,stroke:#f44336,stroke-width:2px,color:#000
+    classDef meeting fill:#d1c4e9,stroke:#673ab7,stroke-width:2px,color:#000
+    classDef queue fill:#ffe0b2,stroke:#ff5722,stroke-width:2px,color:#000
+    classDef defer fill:#d9edf7,stroke:#5bc0de,stroke-width:2px,color:#000
+    classDef triage fill:#f0f4c3,stroke:#cddc39,stroke-width:2px,color:#000
+    classDef swap fill:#f8bbd0,stroke:#f06292,stroke-width:2px,color:#000
+    classDef log fill:#e1bee7,stroke:#8e24aa,stroke-width:2px,color:#000
+
+

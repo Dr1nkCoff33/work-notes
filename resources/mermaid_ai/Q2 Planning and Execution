@@ -1,0 +1,7 @@
+graph LR
+    A[🎯 Define Q2 Goal & OKRs] --> B[📥 Intake Collection]
+    B --> C[🔍 Analyze Intake using Gemini + Criteria]
+    C --> D[🧱 Create Themes & Epics]
+    D --> E[🧩 Map Stories to Epics]
+    E --> F[📄 Create Supporting Docs - ADR, Research, etc.]
+    F --> G[🔗 Link Everything Back Under Q2 Planning Harness CI]

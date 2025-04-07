@@ -1,0 +1,53 @@
+flowchart TD
+    %% MVP Core Functionality
+    subgraph "MVP Phase 1 - Core Functionality"
+        direction TB
+        A[Application Inventory] --> B[Application List by Owner]
+        B --> C[Filter by Owner]
+        C --> D[Application Details]
+        E[Migration Status] --> F{Status: On Harness or Not on Harness}
+        F --> G[Adoption Trend]
+        G --> D
+    end
+
+    %% Subsequent Iterations
+    subgraph "Phase 2 - Enhancements"
+        direction TB
+        H[Advanced Filters] --> I[Director Filtering]
+        I --> J[Application Selection by Director]
+        J --> D
+        K[DoD Status Reporting] --> L{Status: DoD Met or Not Met}
+        L --> M[DoD Summary]
+        M --> D
+        N[Deployment Tracking] --> O[Tracking Harness]
+        O --> D
+    end
+
+    %% Epic Goal
+    subgraph "Epic Goal"
+        direction TB
+        P[Harness Migration Leadership Dashboard]
+        ER --> A
+        ER --> E
+        ER --> K
+        ER --> H
+        ER --> N
+    end
+
+    %% User Roles
+    subgraph "Stakeholders"
+        direction LR
+        U[User Roles:] 
+        U --> URD[Directors]
+        URD --> P
+        U --> URP[Product Managers]
+        URP --> P
+        U --> URE[Engineering Managers]
+        URE --> P
+        U --> URC[CTO]
+        URC --> P
+        U --> URS[Other Stakeholders]
+        URS --> P
+    end
+
+    ER --> UR

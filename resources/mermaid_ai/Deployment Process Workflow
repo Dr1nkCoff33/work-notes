@@ -1,0 +1,14 @@
+flowchart TD
+    A[Start Deployment] --> B{New product feature or\nchange to external-facing product?}
+    B -- Yes --> C{PCR Ticket Present?}
+    B -- No (Bug Fix, Internal, etc.) --> E[Deploy to Production]
+    C -- Yes --> D{PCR Ticket Approved?}
+    C -- No --> F[Block Deployment,\nRoute to Create PCR Ticket]
+    D -- Yes --> E
+    D -- No --> F
+    F --> G[Create/Update PCR Ticket]
+    G --> H[PCR Review]
+    H --> I{PCR Approved?}
+    I -- Yes --> J[Approve Deployment]
+    I -- No --> G
+    J --> E[Deploy to Production]

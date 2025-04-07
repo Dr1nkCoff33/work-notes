@@ -1,0 +1,54 @@
+flowchart TD
+    A[What are you automating?] --> B1[Application Build/Test/Deploy]
+    A --> B2[Infrastructure Provisioning]
+    A --> B3[Database Changes]
+    A --> B4[Testing Only]
+    A --> B5[Security Scanning]
+    A --> B6[Library or Shared Module]
+    A --> B7[Deploy to Environments]
+    A --> B8[Data Workflows]
+    A --> B9[Mobile App Pipelines]
+
+    %% Application
+    B1 --> C1[Use Stage: stage-build-test-app]
+    C1 --> D1[Step Group: step-group-install-dependencies]
+    C1 --> D2[Step Group: step-run-unit-tests]
+    C1 --> D3[Step: step-docker-build]
+
+    %% Infrastructure
+    B2 --> C2[Use Stage: stage-terraform-deploy]
+    C2 --> D4[Step Group: step-group-terraform-plan-apply]
+    D4 --> E1[Step: step-terraform-plan]
+    D4 --> E2[Step: step-terraform-apply]
+
+    %% Database
+    B3 --> C3[Use Stage: stage-db-migration]
+    C3 --> D5[Step: step-flyway-migrate]
+
+    %% Testing
+    B4 --> C4[Use Stage: stage-integration-tests]
+    C4 --> D6[Step Group: step-group-smoke-tests]
+    C4 --> D7[Step Group: step-group-performance-tests]
+    C4 --> D8[Step Group: step-group-e2e-tests]
+
+    %% Security
+    B5 --> C5[Use Stage: security-pipeline-scan]
+    C5 --> D9[Step Group: step-group-sast-check]
+    D9 --> E3[Step: step-dast-scan]
+    D9 --> E4[Step: step-secret-scan]
+
+    %% Library
+    B6 --> C6[Use Stage: stage-library-test]
+    C6 --> D10[Step Group: step-group-versioning-and-tagging]
+
+    %% Delivery
+    B7 --> C7[Use Stage: stage-deploy-to-env]
+    C7 --> D11[Step Group: step-group-post-deploy-verification]
+
+    %% Data
+    B8 --> C8[Use Stage: stage-etl-process]
+
+    %% Mobile
+    B9 --> C9[Use Stage: stage-mobile-app-release]
+    C9 --> D12[Step: step-ios-build]
+    C9 --> D13[Step: step-android-build]

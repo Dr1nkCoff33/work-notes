@@ -1,0 +1,7 @@
+flowchart TD
+    A[Trigger script at sprint-end] --> B[Loop through usernames]
+    B --> C[Query Confluence API with CQL]
+    C --> D[Extract: title, date, creator, pageId]
+    D --> E[Format rows for Confluence Database]
+    E --> F[Insert into personal-space Confluence Database table]
+    F --> G[Database used for demo prep, docs visibility, Gemini input]
