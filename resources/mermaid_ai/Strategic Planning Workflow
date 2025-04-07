@@ -1,0 +1,10 @@
+flowchart TD
+    A[/Raw CSV Inputs/] --> B[(JSON Conversion)]
+    B --> C{Grouping by Product Lines & Strategy}
+    C --> D[Scored via Prioritization Framework]
+    D --> E{Impact & Effort Ranking}
+    E --> F[Thematic Grouping Based on Strategic Goals]
+    F --> G[(Define Epics & Objectives)]
+    G --> H{Create User Stories with Acceptance Criteria}
+    H --> I[(Team Mapping with Dependencies)]
+    I --> J[Finalize Q2 Plan with OKR Alignment]
